@@ -23,7 +23,14 @@ print(mags[:10])
 print(lons[:5])
 
 # Map the earthquakes.
-data = [Scattergeo(lon=lons, lat=lats)]
+data = [{
+    'type': 'scattergeo',
+    'lon': lons,
+    'lat': lats,
+    'marker': {
+        'size': [5*mag for mag in mags],
+    },
+}]
 my_layout = Layout(title='Global Earthquakes')
 
 fig = {'data': data, 'layout': my_layout}
